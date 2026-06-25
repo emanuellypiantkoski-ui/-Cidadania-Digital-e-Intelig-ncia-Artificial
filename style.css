@@ -1,0 +1,161 @@
+/* Variáveis de Cores (Identidade Tecnológica/Segurança) */
+:root {
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-color: #2b3a4a;
+    --primary-color: #4a3aff;
+    --accent-color: #00c9a7;
+    --border-color: #e2e8f0;
+}
+
+/* Modo Escuro */
+body.dark-mode {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-color: #f8fafc;
+    --primary-color: #6366f1;
+    --border-color: #334155;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Header com Flexbox */
+header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 span {
+    color: var(--primary-color);
+}
+
+#theme-toggle {
+    background: none;
+    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+#theme-toggle:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px); /* Efeito hover suave */
+}
+
+/* Conteúdo Principal */
+main {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+section {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* Formulário e Quiz */
+.quiz-question {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.quiz-question p {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+label {
+    display: block;
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+
+#btn-submit {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#btn-submit:hover {
+    background-color: var(--accent-color);
+}
+
+#quiz-result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.result-sucesso {
+    background-color: rgba(0, 201, 167, 0.15);
+    border-left: 5px solid var(--accent-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* 4. Responsividade - Media Queries (Telas Móveis) */
+@media (max-width: 600px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    section {
+        padding: 1.25rem;
+    }
+}
