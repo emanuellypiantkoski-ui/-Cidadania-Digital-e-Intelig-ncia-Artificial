@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cidadania Digital: IA & Conscientização</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <h1>Cidadania<span>Digital</span></h1>
+            <button id="theme-toggle" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="intro">
+            <h2>O Impacto das Deepfakes na Sociedade</h2>
+            <p>Com o avanço da Inteligência Artificial, a criação de mídias manipuladas (deepfakes) tornou-se extremamente realista. Compreender essas tecnologias é o primeiro passo para exercer a cidadania digital e combater a desinformação automatizada.</p>
+        </section>
+
+        <section id="quiz">
+            <h2>Desafio Anti-Desinformação</h2>
+            <p>Teste seus conhecimentos: você sabe identificar uma mídia manipulada?</p>
+            
+            <form id="quiz-form">
+                <div class="quiz-question">
+                    <p>1. Uma inteligência artificial pode replicar perfeitamente a voz de uma pessoa com apenas alguns segundos de áudio original?</p>
+                    <label>
+                        <input type="radio" name="q1" value="sim" required> Sim, as tecnologias de clonagem de voz por IA estão altamente avançadas.
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="nao"> Não, ainda é impossível imitar a voz humana perfeitamente com pouca amostra.
+                    </label>
+                </div>
+
+                <div class="quiz-question">
+                    <p>2. Qual destas é uma pista comum para identificar um vídeo gerado por deepfake?</p>
+                    <label>
+                        <input type="radio" name="q2" value="errado" required> Resolução perfeita de 4K em todo o cenário do vídeo.
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="certo"> Piscar de olhos irregular, sombras desalinhadas e texturas estranhas na pele.
+                    </label>
+                </div>
+
+                <button type="submit" id="btn-submit">Verificar Respostas</button>
+            </form>
+
+            <div id="quiz-result" class="hidden"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Projeto Cidadania Digital e IA. Desenvolvido para fins educacionais.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
