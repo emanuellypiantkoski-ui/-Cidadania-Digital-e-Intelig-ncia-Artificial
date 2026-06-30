@@ -1,47 +1,48 @@
-// Aguarda o carregamento do DOM para evitar erros no console
-document.addEventListener('DOMContentLoaded', () => {
+// Aguarda o carregamento do DOM para evitar erros de execução
+document.addEventListener("DOMContentLoaded", () => {
     
-    // --- LÓGICA DO MODO ESCURO (ACESSIBILIDADE) ---
-    const themeToggleBtn = document.getElementById('theme-toggle');
+    // --- FUNCIONALIDADE 1: Controle do Modo Escuro ---
+    const btnDarkMode = document.getElementById("toggle-dark-mode");
     
-    themeToggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
+    btnDarkMode.addEventListener("click", () => {
+        // Altera a classe no body para disparar as variáveis CSS do modo escuro
+        document.body.classList.toggle("dark-mode");
         
-        // Altera dinamicamente o texto do botão com base na classe
-        if (document.body.classList.contains('dark-mode')) {
-            themeToggleBtn.textContent = '☀️ Modo Claro';
+        // Atualiza textualmente o botão para dar feedback visual claro
+        if (document.body.classList.contains("dark-mode")) {
+            btnDarkMode.textContent = "☀️ Modo Claro";
         } else {
-            themeToggleBtn.textContent = '自由 Modo Escuro';
+            btnDarkMode.textContent = "條 Modo Escuro";
         }
     });
 
-    // --- LÓGICA DO QUIZ ANTI-DESINFORMAÇÃO ---
-    const quizForm = document.getElementById('quiz-form');
-    const resultDiv = document.getElementById('quiz-result');
+    // --- FUNCIONALIDADE 2: Validador do Quiz Anti-Desinformação ---
+    const quizForm = document.getElementById("quiz-form");
+    const feedbackDiv = document.getElementById("quiz-feedback");
 
-    quizForm.addEventListener('submit', (event) => {
+    quizForm.addEventListener("submit", (event) => {
         // Evita que a página recarregue ao enviar o formulário
-        event.preventDefault(); 
+        event.preventDefault();
 
-        // Captura as respostas usando FormData
-        const formData = new FormData(quizForm);
-        const answer1 = formData.get('q1');
-        const answer2 = formData.get('q2');
-
-        // Variável de controle do processamento de informações
-        let acertos = 0;
-
-        if (answer1 === 'sim') acertos++;
-        if (answer2 === 'certo') acertos++;
-
-        // Exibição e manipulação dinâmica do DOM baseada nos resultados
-        resultDiv.classList.remove('hidden');
-        resultDiv.className = 'result-sucesso'; // Reseta classes de estilo
+        // Captura o input do tipo radio selecionado pelo usuário
+        const respostaSelecionada = document.querySelector('input[name="resposta"]:checked');
         
-        if (acertos === 2) {
-            resultDiv.innerHTML = `🎉 Excelente! Você acertou ${acertos} de 2 questões. Você está pronto para identificar desinformações por IA!`;
+        // Variável para armazenar o valor da resposta processada antes de exibir na tela
+        let valorResposta = respostaSelecionada.value;
+
+        // Limpa classes anteriores do feedback para evitar sobreposição de estilos
+        feedbackDiv.className = "";
+
+        // Processamento lógico da resposta e manipulação dinâmica do DOM
+        if (valorResposta === "correta") {
+            feedbackDiv.textContent = "🎉 Excelente! Você agiu como um cidadão digital consciente. Sempre cheque os fatos antes de espalhar qualquer informação.";
+            feedbackDiv.classList.add("quiz-feedback", "success");
         } else {
-            resultDiv.innerHTML = `⚠️ Você acertou ${acertos} de 2. Lembre-se: deepfakes de voz são reais e sinais sutis em vídeos ajudam a desmascarar conteúdos falsos.`;
+            feedbackDiv.textContent = "⚠️ Atenção! Compartilhar sem checar espalha desinformação automatizada. Em caso de deepfakes visíveis ou áudios suspeitos, sempre investigue em fontes oficiais.";
+            feedbackDiv.classList.add("quiz-feedback", "error");
         }
+
+        // Torna a div de feedback visível removendo a classe 'hidden'
+        feedbackDiv.classList.remove("hidden");
     });
 });
