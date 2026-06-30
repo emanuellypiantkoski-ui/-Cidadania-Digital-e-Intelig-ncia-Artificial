@@ -3,60 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital: IA & Conscientização</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Conexão Segura | Cidadania Digital e IA</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
-        <div class="container header-container">
-            <h1>Cidadania<span>Digital</span></h1>
-            <button id="theme-toggle" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
+        <div class="header-container">
+            <h1>Conexão<span>Segura</span></h1>
+            <button id="toggle-dark-mode" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
         </div>
     </header>
 
-    <main class="container">
-        <section id="intro">
-            <h2>O Impacto das Deepfakes na Sociedade</h2>
-            <p>Com o avanço da Inteligência Artificial, a criação de mídias manipuladas (deepfakes) tornou-se extremamente realista. Compreender essas tecnologias é o primeiro passo para exercer a cidadania digital e combater a desinformação automatizada.</p>
+    <main>
+        <section id="introducao" class="card">
+            <h2>O Desafio das Deepfakes</h2>
+            <p>Com o avanço da Inteligência Artificial, a criação de mídias manipuladas (vídeos, áudios e imagens falsas extremamente realistas) tornou-se um desafio para a democracia e a verdade. Entender como identificar essas ameaças é o primeiro passo para exercer a verdadeira <strong>Cidadania Digital</strong>.</p>
         </section>
 
-        <section id="quiz">
-            <h2>Desafio Anti-Desinformação</h2>
-            <p>Teste seus conhecimentos: você sabe identificar uma mídia manipulada?</p>
+        <section id="quiz-section" class="card">
+            <h2>Quiz: Você sabe identificar a Desinformação?</h2>
+            <p class="instrucao">Leia a situação abaixo e escolha a melhor resposta:</p>
             
-            <form id="quiz-form">
-                <div class="quiz-question">
-                    <p>1. Uma inteligência artificial pode replicar perfeitamente a voz de uma pessoa com apenas alguns segundos de áudio original?</p>
-                    <label>
-                        <input type="radio" name="q1" value="sim" required> Sim, as tecnologias de clonagem de voz por IA estão altamente avançadas.
+            <div class="quiz-container">
+                <p class="pergunta">"Você recebeu um vídeo no WhatsApp de um político famoso confessando um crime grave. A voz parece real, mas os movimentos dos lábios estão levemente dessincronizados e o fundo do vídeo parece borrado." O que você faz?</p>
+                
+                <form id="quiz-form">
+                    <label class="opcao">
+                        <input type="radio" name="resposta" value="errada1" required>
+                        <span>Compartilho imediatamente nos grupos de família para alertar a todos.</span>
                     </label>
-                    <label>
-                        <input type="radio" name="q1" value="nao"> Não, ainda é impossível imitar a voz humana perfeitamente com pouca amostra.
+                    <label class="opcao">
+                        <input type="radio" name="resposta" value="correta">
+                        <span>Desconfio do vídeo, pesquiso em portais de notícias confiáveis e não compartilho antes de confirmar.</span>
                     </label>
-                </div>
-
-                <div class="quiz-question">
-                    <p>2. Qual destas é uma pista comum para identificar um vídeo gerado por deepfake?</p>
-                    <label>
-                        <input type="radio" name="q2" value="errado" required> Resolução perfeita de 4K em todo o cenário do vídeo.
+                    <label class="opcao">
+                        <input type="radio" name="resposta" value="errada2">
+                        <span>Acredito que é 100% real porque a tecnologia de IA atual não erra detalhes visuais.</span>
                     </label>
-                    <label>
-                        <input type="radio" name="q2" value="certo"> Piscar de olhos irregular, sombras desalinhadas e texturas estranhas na pele.
-                    </label>
-                </div>
-
-                <button type="submit" id="btn-submit">Verificar Respostas</button>
-            </form>
-
-            <div id="quiz-result" class="hidden"></div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Projeto Cidadania Digital e IA. Desenvolvido para fins educacionais.</p>
-    </footer>
-
-    <script src="js/script.js"></script>
-</body>
-</html>
+                    
+                    <button type="submit" id="btn-enviar">Verificar Resposta</button>
