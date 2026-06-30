@@ -1,161 +1,221 @@
-/* Variáveis de Cores (Identidade Tecnológica/Segurança) */
+/* Variáveis de Cores e Configurações Globais */
 :root {
-    --bg-color: #f4f6f9;
-    --card-bg: #ffffff;
-    --text-color: #2b3a4a;
-    --primary-color: #4a3aff;
-    --accent-color: #00c9a7;
+    --bg-primary: #f4f6f9;
+    --bg-card: #ffffff;
+    --text-main: #2d3748;
+    --accent-color: #3182ce;
+    --accent-hover: #2b6cb0;
     --border-color: #e2e8f0;
+    --success-color: #38a169;
+    --error-color: #e53e3e;
+    --transition-speed: 0.3s;
 }
 
-/* Modo Escuro */
+/* Classes para o Modo Escuro (Ativadas via JS) */
 body.dark-mode {
-    --bg-color: #0f172a;
-    --card-bg: #1e293b;
-    --text-color: #f8fafc;
-    --primary-color: #6366f1;
-    --border-color: #334155;
+    --bg-primary: #1a202c;
+    --bg-card: #2d3748;
+    --text-main: #f7fafc;
+    --border-color: #4a5568;
+    --accent-color: #63b3ed;
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
     line-height: 1.6;
-}
-
-.container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 /* Header com Flexbox */
 header {
-    background-color: var(--card-bg);
+    background-color: var(--bg-card);
     border-bottom: 1px solid var(--border-color);
-    padding: 1rem 0;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .header-container {
+    max-width: 1000px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 header h1 span {
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
-#theme-toggle {
-    background: none;
-    border: 2px solid var(--primary-color);
-    color: var(--text-color);
+#toggle-dark-mode {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    transition: all 0.2s ease;
+    transition: background-color var(--transition-speed), transform 0.1s;
 }
 
-#theme-toggle:hover {
-    background-color: var(--primary-color);
-    color: #fff;
-    transform: translateY(-2px); /* Efeito hover suave */
+#toggle-dark-mode:hover {
+    background-color: var(--accent-hover);
+    transform: scale(1.05);
 }
 
-/* Conteúdo Principal */
+/* Layout do Conteúdo Principal */
 main {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-section {
-    background-color: var(--card-bg);
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     padding: 2rem;
-    border-radius: 12px;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 h2 {
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
-/* Formulário e Quiz */
-.quiz-question {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
+p {
+    margin-bottom: 1rem;
 }
 
-.quiz-question p {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+/* Layout do Quiz e Formulários */
+.quiz-container {
+    margin-top: 1.5rem;
 }
 
-label {
-    display: block;
-    margin: 0.5rem 0;
+.pergunta {
+    font-style: italic;
+    background-color: var(--bg-primary);
+    padding: 1rem;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+}
+
+#quiz-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.opcao {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
     cursor: pointer;
+    transition: background-color var(--transition-speed);
 }
 
-#btn-submit {
-    background-color: var(--primary-color);
+.opcao:hover {
+    background-color: var(--bg-primary);
+}
+
+#btn-enviar {
+    background-color: var(--accent-color);
     color: white;
     border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
+    padding: 0.75rem;
     font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color var(--transition-speed);
 }
 
-#btn-submit:hover {
-    background-color: var(--accent-color);
+#btn-enviar:hover {
+    background-color: var(--accent-hover);
 }
 
-#quiz-result {
+/* Feedback do Quiz */
+#quiz-feedback {
     margin-top: 1.5rem;
     padding: 1rem;
     border-radius: 6px;
     font-weight: bold;
+    animation: fadeIn 0.5s ease;
 }
 
-.result-sucesso {
-    background-color: rgba(0, 201, 167, 0.15);
-    border-left: 5px solid var(--accent-color);
+#quiz-feedback.success {
+    background-color: rgba(56, 161, 105, 0.15);
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+#quiz-feedback.error {
+    background-color: rgba(229, 62, 62, 0.15);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
 }
 
 .hidden {
     display: none;
 }
 
+/* Grid de Dicas com Flexbox Responsivo */
+.grid-dicas {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.dica-item {
+    flex: 1 1 300px;
+    background-color: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 6px;
+}
+
 /* Footer */
 footer {
     text-align: center;
-    padding: 2rem 0;
+    padding: 2rem;
     font-size: 0.9rem;
+    color: #718096;
     border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
 }
 
-/* 4. Responsividade - Media Queries (Telas Móveis) */
+/* Animação */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 4. Responsividade Avançada via Media Queries */
 @media (max-width: 600px) {
+    header {
+        padding: 1rem;
+    }
+    
     .header-container {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
     }
     
-    section {
-        padding: 1.25rem;
+    .card {
+        padding: 1.5rem;
     }
 }
